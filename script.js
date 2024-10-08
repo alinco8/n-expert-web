@@ -1,6 +1,7 @@
 import Rand from 'https://cdn.jsdelivr.net/npm/rand-seed@1.0.2/dist/rand-seed.es.js';
 
 const result = document.getElementById('result');
+const username = document.getElementById('username');
 const resultContainer = document.getElementById('result-container');
 const form = document.querySelector('form');
 const list = [
@@ -31,6 +32,7 @@ form.addEventListener('submit', (e) => {
     const rng = new Rand(JSON.stringify([name, birthday, now.getFullYear()]));
     resultContainer.style.opacity = 1;
     result.innerText = list[Math.floor(rng.next() * list.length)];
+    username.innerText = name;
 
     return false;
 });
